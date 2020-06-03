@@ -51,10 +51,21 @@ public class ResultBackground {
 	
 	// figures out how well you did
 	public void calRank() {
-		if(score <= 6000) rank = "C"; 
-		else if(score>6000 && score <= 10000) rank = "B"; 
-		else if(score>10000 && score <= 18000) rank = "A"; 
-		else if(score>18000 && score <= 25000) rank = "S"; 
+		if(score <= 8000) rank = "F";
+		else if(score>8000 && score <= 10000) rank = "D-";
+		else if(score>10000 && score <= 13000) rank = "D";
+		else if(score>13000 && score <= 16000) rank = "D+";
+		else if(score>16000 && score <= 19000) rank = "C-";
+		else if(score>19000 && score <= 22000) rank = "C";
+		else if(score>22000 && score <= 25000) rank = "C+";
+		else if(score>25000 && score <= 28000) rank = "B-";
+		else if(score>28000 && score <= 31000) rank = "B";
+		else if(score>25000 && score <= 34000) rank = "B+";
+		else if(score>34000 && score <= 40000) rank = "A"; 
+		else if(score>40000 && score <= 45000) rank = "A+";
+		else if(score>45000 && score <= 50000) rank = "S-";
+		else if(score>50000 && score <= 60000) rank = "S"; 
+		else if(score>60000) rank = "S+"; 
 	}
 	public void writeScore() {
 			
