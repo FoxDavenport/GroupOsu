@@ -174,9 +174,9 @@ public class MenuState extends GameState{
 				);
 		
 		//scoreboard
-		g.drawRect(20,150,300,400);
+		g.drawRect(20,150,300,350);
 		
-		for( int i = 0; i < 8 ; i++) {
+		for( int i = 0; i < 7 ; i++) {
 			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
 			g.drawString("integrate database pls", 24, 190 + i*50);
 		}
