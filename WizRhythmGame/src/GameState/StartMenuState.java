@@ -28,6 +28,7 @@ public class StartMenuState extends GameState{
 		init();
 	}
 	
+	
 
 	@Override
 	public void init() {
@@ -61,7 +62,7 @@ public class StartMenuState extends GameState{
 		g.drawString("Rhythm Game", 200, 180);
 		
 		// flash info
-		double alpha = 255 * Math.sin(angle * Math.PI / 180);	
+		double alpha = 255 * Math.sin(angle * Math.PI / 180);
 		if (angle >= 175) angle = 0;
 		g.setFont(new Font(
 				"a���������B", 
@@ -70,7 +71,7 @@ public class StartMenuState extends GameState{
 		g.setColor(new Color(255, 255, 255, (int)alpha));
 		g.drawString(
 				"Press space bar to continue",
-				255, 580);
+				310, 580);
 		
 		// version info
 		g.setColor(Color.white);
@@ -78,7 +79,7 @@ public class StartMenuState extends GameState{
 				"a���������B", 
 				Font.PLAIN, 
 				35));
-		g.drawString("1.0.1", 610,670);
+		g.drawString("1.0.1", 600,670);
 		
 	
 	}

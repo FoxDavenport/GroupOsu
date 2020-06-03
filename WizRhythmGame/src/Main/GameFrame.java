@@ -51,7 +51,7 @@ public class GameFrame extends JFrame implements
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setShape(new RoundRectangle2D.Double(
-				0,0,Game.WIDTH,Game.HEIGHT,100,100)); 
+				0,0,Game.WIDTH,Game.HEIGHT,40,40)); 
 		setVisible(true);
 		setLayout(null);
 		addKeyListener(this);
@@ -109,7 +109,7 @@ public class GameFrame extends JFrame implements
 	public void draw() {
 		gsm.draw(g);
 		g.setFont(new Font("����ü", Font.BOLD, 10));
-		g.drawString("FPS : "+String.valueOf(nowFps), 25, 25);
+		g.drawString("FPS : "+String.valueOf(nowFps), 20, 12);
 		
 	}
 	public void drawToScreen() {

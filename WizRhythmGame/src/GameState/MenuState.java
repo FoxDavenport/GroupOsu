@@ -17,6 +17,9 @@ public class MenuState extends GameState{
 
 	// image
 	private BufferedImage imageMenuBackground; 
+	private BufferedImage imageMenuBackground2; 
+	private BufferedImage imageMenuBackground3; 
+	private BufferedImage imageMenuBackground4; 
 	private BufferedImage imageHoverOn;
 	private BufferedImage imageYellowStar;
 	private BufferedImage imageGrayStar;
@@ -56,10 +59,24 @@ public class MenuState extends GameState{
 		tracks.add(new Track("D-51", "Brand New World", 4));
 		
 		try { //get all of our juicy images
+
 			imageMenuBackground = ImageIO.read(
 					getClass().getResourceAsStream(
-							"/image/ssbg.jpg")
+							"/image/song1Bg2.jpg")
 					);
+			imageMenuBackground2 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/ThePlanIsSimple.jpg")
+					);
+			imageMenuBackground3 = ImageIO.read(
+					getClass().getResourceAsStream(
+							 "/image/song2Bg2.jpg")
+					);
+			imageMenuBackground4 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/EniesLobby.png")
+					);
+		
 			imageHoverOn = ImageIO.read(
 					getClass().getResourceAsStream(
 							"/image/ssbtn_hoverON.png")
@@ -117,23 +134,75 @@ public class MenuState extends GameState{
 		}
 			
 	}
+	
+	
 
 	@Override
 	public void draw(Graphics2D g) {
 		
 		// background
-		g.drawImage(imageMenuBackground, 0, 0, null);
+		
+		for (int i = 0; i < tracks.size(); i++) {
+			if(i == currentChoice) {
+				if(i == 0) {
+					g.drawImage(imageMenuBackground, 0, 0, null);
+				}
+				if(i == 1) {
+					g.drawImage(imageMenuBackground2, 0, 0, null);
+				}
+				if(i == 2) {
+					g.drawImage(imageMenuBackground3, 0, 0, null);
+				}
+				if(i == 3) {
+					g.drawImage(imageMenuBackground4, 0, 0, null);
+				}
+			}
+		}
+			
+		//add some UI stuff
+		g.drawImage(imagebot, 0, 120,null);
+		g.drawImage(imagetop, 0, -10 ,null);
+		
+		g.setColor(Color.white);
+		g.setFont(new Font(
+				"HYHeadLine", 
+				Font.PLAIN, 
+				25));
+		g.drawString(
+				"LOCAL SCORES:",
+				20, 124 
+				);
+		
+		//scoreboard
+		g.drawRect(20,150,300,350);
+		
+		for( int i = 0; i < 7 ; i++) {
+			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
+			g.drawString("integrate database pls", 24, 190 + i*50);
+		}
 		
 		// Indication to select music
 		for (int i = 0; i < tracks.size(); i++) {
-			double dif = 200 * Math.sin(i * 124 * Math.PI / 180);
+			//double dif = 200 * Math.sin(i * 124 * Math.PI / 180); <--????
+			int yInterval = i * 100;
 			
 			// selected music
+			
 			if(i == currentChoice) {
+				
+				g.setColor(Color.white);
+				g.setFont(new Font(
+						"HYHeadLine", 
+						Font.BOLD, 
+						36));
+				g.drawString(
+						tracks.get(i).getTitleName() + " - " + tracks.get(i).getSingerName(),
+						20,50 
+						);
+				
 				g.drawImage(
 						imageHoverOn, 
-						40+ i * 300, 
-						220 - (int) dif,
+						600, 100 + yInterval,
 						null
 						);
 				
@@ -144,36 +213,26 @@ public class MenuState extends GameState{
 						25));
 				g.drawString(
 						tracks.get(i).getSingerName(),
-						200+ i * 300,
-						380 - (int) dif
+						740, 160 + yInterval 
 						);
 				g.drawString(
 						tracks.get(i).getTitleName(),
-						200+ i * 300,
-						420 - (int) dif
+						740, 130 + yInterval 
 						);
 
-				g.drawLine(
-						200+ i * 300,
-						393 - (int) dif,
-						350+ i * 300, 
-						393 - (int) dif
-						);
-				
+			
 				//shows difficulty
 				int j;
 				for (j = 0; j < tracks.get(i).getDifficulty(); j++) {
 					g.drawImage(
 							imageYellowStar, 
-							200+ i * 300 + j * 20,
-							440 - (int) dif,
+							740 + j*20, 174 +  yInterval , 
 							null);
 				}
-				for (int k = 0; k < 5 - tracks.get(i).getDifficulty(); k++) {
+				for (int k = 0; k < 5; k++) {
 				g.drawImage(
 						imageGrayStar, 
-						200+ i * 300 + j * 20 + k * 20,  
-						440 - (int) dif,
+						740 + k*20, 174 +  yInterval ,
 						null);
 				}
 			}
@@ -182,8 +241,7 @@ public class MenuState extends GameState{
 			else {
 				g.drawImage(
 						imageHoverOff, 
-						40+ i * 300,
-						220 - (int) dif,
+						600, 100 + yInterval,
 						null
 						);
 				
@@ -194,28 +252,17 @@ public class MenuState extends GameState{
 						25));
 				g.drawString(
 						tracks.get(i).getSingerName(),
-						200+ i * 300,
-						380 - (int) dif
+						740, 160 + yInterval 
 						);
 				g.drawString(
 						tracks.get(i).getTitleName(),
-						200+ i * 300,
-						420 - (int) dif
+						740, 130 + yInterval 
 						);
-
-				g.drawLine(
-						200+ i * 300 ,
-						393 - (int) dif,
-						350+ i * 300, 
-						393 - (int) dif
-						);
+				
+				
 			
 			} 
 		}
-		
-		//add some UI stuff
-		g.drawImage(imagebot, 0, 120,null);
-		g.drawImage(imagetop, 0, -300,null);
 		
 		
 		//tells user developing stuff
