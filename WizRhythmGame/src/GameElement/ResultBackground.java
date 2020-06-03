@@ -1,6 +1,7 @@
 package GameElement;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -11,20 +12,25 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import GameEnvironment.Music;
+import java.util.Scanner;
 
 //class tells you how well you did on the level
 public class ResultBackground {
+	
+	//scanner object
+	Scanner input = new Scanner(System.in); 
 
 	//initialize name of song, score, and your letter grade
 	private String musicTitle;
 	private int score;
 	private String rank;
+	private String name;
 	
 	// initialize more
-	private boolean step1On;
-	private boolean step2On;
-	private boolean step3On;
-	private boolean step4On;
+	private boolean step10n;
+	private boolean step20n;
+	private boolean step30n;
+	private boolean step40n;
 	private boolean nextgame;
 	private int angle;
 
@@ -37,10 +43,10 @@ public class ResultBackground {
 	public ResultBackground() {
 		
 		//initialize more stuff
-		step1On = false;
-		step2On = false;
-		step3On = false;
-		step4On = false;
+		step10n = false;
+		step20n = false;
+		step30n = false;
+		step40n = false;
 		nextgame = false;
 		angle = 155;
 		
@@ -83,7 +89,7 @@ public class ResultBackground {
 		// FileWriter
 		FileWriter fw;
 		BufferedWriter writer;
-		
+				
 		try {
 			
 			fw = new FileWriter(
@@ -138,8 +144,8 @@ public class ResultBackground {
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		
 		//starts with title
-		if(bgm.getTime() >= 3000 || step1On == true) {
-			step1On = true;
+		if(bgm.getTime() >= 3000 || step10n == true) {
+			step10n = true;
 			g.setColor(new Color(200, 255, 200));
 			g.setFont(new Font(
 					"Elephant", 
@@ -150,8 +156,8 @@ public class ResultBackground {
 		}
 		
 		//now does score
-		if(bgm.getTime() >= 4000 || step2On == true) {
-			step2On = true;
+		if(bgm.getTime() >= 4000 || step20n == true) {
+			step20n = true;
 			g.setColor(new Color(200, 255, 200));
 			g.setFont(new Font(
 					"Elephant", 
@@ -166,8 +172,8 @@ public class ResultBackground {
 		}
 		
 		//now tells rank
-		if(bgm.getTime() >= 5500 || step3On == true) {
-			step3On = true;
+		if(bgm.getTime() >= 6500 || step30n == true) {
+			step30n = true;
 			g.setColor(Color.green);
 			g.setFont(new Font(
 					"Elephant",
@@ -178,8 +184,8 @@ public class ResultBackground {
 		}
 		
 		// now let you go to next level
-		if(bgm.getTime() >= 6500 || step4On == true) {
-			step4On = true;
+		if(bgm.getTime() >= 7500 || step40n == true) {
+			step40n = true;
 			double alpha = 255 * Math.sin(angle * Math.PI / 180);	
 			if (angle >= 175) angle = 0;
 			g.setColor(new Color(255, 255, 100, (int)alpha));

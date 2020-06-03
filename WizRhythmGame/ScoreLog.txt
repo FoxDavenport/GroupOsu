@@ -33,3 +33,8 @@
 2020.06.03 12:40:51		Macross- 82.99 F.M		17305
 2020.06.03 12:53:49		Macross- 82.99 F.M		20985
 2020.06.03 01:22:31		Shiawase no Monosashi - Mariya 		22440
+2020.06.03 01:36:03		Macross- 82.99 F.M		0
+2020.06.03 01:42:41		Shiawase no Monosashi - Mariya 		700
+2020.06.03 02:34:29		Shiawase no Monosashi - Mariya 		0
+2020.06.03 02:41:52		Anime Girls - adrenaline		21840
+2020.06.03 02:47:24		Macross- 82.99 F.M		21910
