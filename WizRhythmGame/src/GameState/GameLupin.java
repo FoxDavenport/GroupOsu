@@ -499,7 +499,7 @@ public class GameLupin extends GameState
 				RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
-		g.drawString("Macross- 82.99 F.M\"", 10, 694);
+		g.drawString("Macross- 82.99 F.M", 10, 694);
 		
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));

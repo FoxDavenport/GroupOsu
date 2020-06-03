@@ -16,7 +16,7 @@ public class GameStateManager {
 	
 	public GameStateManager() {
 		
-		gameStates = new GameState[5];
+		gameStates = new GameState[6];
 		
 		currentState = 0;
 		loadState(currentState);
