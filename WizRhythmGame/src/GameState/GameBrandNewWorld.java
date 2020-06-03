@@ -483,6 +483,7 @@ public class GameBrandNewWorld extends GameState
 				rbg.takeMusicTitle("D-51 - Brand New World");
 				rbg.takeScore(score);
 				rbg.writeScore();
+				rbg.calRank();
 			}
 			rbg.update();
 		}

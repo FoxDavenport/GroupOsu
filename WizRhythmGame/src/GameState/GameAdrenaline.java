@@ -501,6 +501,7 @@ public class GameAdrenaline extends GameState
 				rbg.takeMusicTitle("Anime Girls - adrenaline");
 				rbg.takeScore(score);
 				rbg.writeScore();
+				rbg.calRank();
 			}
 			rbg.update();
 		}

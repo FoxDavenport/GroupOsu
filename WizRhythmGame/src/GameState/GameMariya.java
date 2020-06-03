@@ -483,6 +483,7 @@ public class GameMariya extends GameState
 				rbg.takeMusicTitle("Shiawase no Monosashi - Mariya ");
 				rbg.takeScore(score);
 				rbg.writeScore();
+				rbg.calRank();
 			}
 			rbg.update();
 		}

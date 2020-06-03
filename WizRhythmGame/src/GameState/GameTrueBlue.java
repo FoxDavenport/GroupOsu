@@ -482,6 +482,7 @@ public class GameTrueBlue extends GameState
 				rbg.takeMusicTitle("dj Taka- True Blue");
 				rbg.takeScore(score);
 				rbg.writeScore();
+				rbg.calRank();
 			}
 			rbg.update();
 		}
