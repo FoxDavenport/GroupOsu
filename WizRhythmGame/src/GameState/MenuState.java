@@ -17,6 +17,9 @@ public class MenuState extends GameState{
 
 	// image
 	private BufferedImage imageMenuBackground; 
+	private BufferedImage imageMenuBackground2; 
+	private BufferedImage imageMenuBackground3; 
+	private BufferedImage imageMenuBackground4; 
 	private BufferedImage imageHoverOn;
 	private BufferedImage imageYellowStar;
 	private BufferedImage imageGrayStar;
@@ -56,10 +59,24 @@ public class MenuState extends GameState{
 		tracks.add(new Track("D-51", "Brand New World", 4));
 		
 		try { //get all of our juicy images
+
 			imageMenuBackground = ImageIO.read(
 					getClass().getResourceAsStream(
-							"/image/ssbg.jpg")
+							"/image/song1Bg2.jpg")
 					);
+			imageMenuBackground2 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/ThePlanIsSimple.jpg")
+					);
+			imageMenuBackground3 = ImageIO.read(
+					getClass().getResourceAsStream(
+							 "/image/song2Bg2.jpg")
+					);
+			imageMenuBackground4 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/EniesLobby.png")
+					);
+		
 			imageHoverOn = ImageIO.read(
 					getClass().getResourceAsStream(
 							"/image/ssbtn_hoverON.png")
@@ -124,8 +141,24 @@ public class MenuState extends GameState{
 	public void draw(Graphics2D g) {
 		
 		// background
-		g.drawImage(imageMenuBackground, 0, 0, null);
-				
+		
+		for (int i = 0; i < tracks.size(); i++) {
+			if(i == currentChoice) {
+				if(i == 0) {
+					g.drawImage(imageMenuBackground, 0, 0, null);
+				}
+				if(i == 1) {
+					g.drawImage(imageMenuBackground2, 0, 0, null);
+				}
+				if(i == 2) {
+					g.drawImage(imageMenuBackground3, 0, 0, null);
+				}
+				if(i == 3) {
+					g.drawImage(imageMenuBackground4, 0, 0, null);
+				}
+			}
+		}
+			
 		//add some UI stuff
 		g.drawImage(imagebot, 0, 120,null);
 		g.drawImage(imagetop, 0, -10 ,null);
@@ -143,9 +176,9 @@ public class MenuState extends GameState{
 		//scoreboard
 		g.drawRect(20,150,300,400);
 		
-		for(int s = 0; s < 8 ; s++) {
-			g.drawLine(20, 200 + s*50, 320, 200 + s*50);
-			g.drawString("integrate database pls", 24, 190 + s*50);
+		for( int i = 0; i < 8 ; i++) {
+			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
+			g.drawString("integrate database pls", 24, 190 + i*50);
 		}
 		
 		// Indication to select music

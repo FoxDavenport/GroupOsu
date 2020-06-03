@@ -31,6 +31,5 @@ public class Track {
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-	
 
 }
