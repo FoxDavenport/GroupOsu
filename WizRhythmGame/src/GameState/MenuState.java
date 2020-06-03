@@ -34,7 +34,7 @@ public class MenuState extends GameState{
 	// track value
 	public static final int adrenaline_MUSIC = 0;
 	public static final int Mariya_MUSIC  = 1;
-	public static final int TrueBlue_MUSIC = 2;
+	public static final int Lupin_MUSIC = 2;
 	public static final int BrandNewWorld_MUSIC=3;
 	
 	// selected music
@@ -55,7 +55,7 @@ public class MenuState extends GameState{
 
 		tracks.add(new Track("Anime Girls", "adrenaline", 2));
 		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
-		tracks.add(new Track("dj Taka", "True Blue", 4));
+		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
 		
 		try { //get all of our juicy images
@@ -70,7 +70,7 @@ public class MenuState extends GameState{
 					);
 			imageMenuBackground3 = ImageIO.read(
 					getClass().getResourceAsStream(
-							 "/image/song2Bg2.jpg")
+							 "/image/lupin.jpg")
 					);
 			imageMenuBackground4 = ImageIO.read(
 					getClass().getResourceAsStream(
@@ -311,7 +311,7 @@ public class MenuState extends GameState{
 			gsm.setState(GameStateManager.Mariya_STATE);
 		}
 		if (currentChoice == 2) {
-			gsm.setState(GameStateManager.TrueBlue_STATE);
+			gsm.setState(GameStateManager.Lupin_STATE);
 		}
 		if (currentChoice == 3) {
 			gsm.setState(GameStateManager.BrandNewWorld_STATE);

@@ -78,7 +78,7 @@ public class Note {
 			close();
 			return "Miss";
 		}
-		else if (y >= 575 && y <600 ) {
+		else if (y >= 565 && y <600 ) {
 			System.out.println("Great");
 			close();
 			return "Great";
@@ -88,7 +88,7 @@ public class Note {
 			close();
 			return "Good";
 		} 
-		else if (y >= 550 && y<575) {
+		else if (y >=535 && y<565) {
 			System.out.println("Perfect");
 			close();
 			return "Perfect";

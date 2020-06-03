@@ -15,7 +15,7 @@ import GameElement.ResultBackground;
 import GameEnvironment.Music;
 
 //read GameAdrenaline for explanation
-public class GameTrueBlue extends GameState
+public class GameLupin extends GameState
                    implements Runnable {
 
 	private InterfaceBackground bg;
@@ -43,7 +43,7 @@ public class GameTrueBlue extends GameState
 	
 	private Music beatSound;
 	
-	public GameTrueBlue(GameStateManager gsm) {
+	public GameLupin(GameStateManager gsm) {
 		this.gsm = gsm;
 		
 		init();
@@ -57,11 +57,11 @@ public class GameTrueBlue extends GameState
 		showingResult = false;
 		rbg = new ResultBackground();
 		
-		bg = new InterfaceBackground("/image/beach.jpg");
+		bg = new InterfaceBackground("/image/lupin.jpg");
 		
 		setBeat();
 		
-		gameMusic = new Music("True Blue.mp3", false);
+		gameMusic = new Music("82.99 F.M.mp3", false);
 		gameMusic.start();
 		
 		effect = new EffectAnimation();
@@ -479,7 +479,7 @@ public class GameTrueBlue extends GameState
 			if(!showingResult) {
 				showingResult = true;
 				rbg.playBgm();
-				rbg.takeMusicTitle("dj Taka- True Blue");
+				rbg.takeMusicTitle("Macross- 82.99 F.M");
 				rbg.takeScore(score);
 				rbg.writeScore();
 				rbg.calRank();
@@ -499,7 +499,7 @@ public class GameTrueBlue extends GameState
 				RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
-		g.drawString("dj Taka- True Blue", 10, 694);
+		g.drawString("Macross- 82.99 F.M\"", 10, 694);
 		
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
