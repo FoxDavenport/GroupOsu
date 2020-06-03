@@ -3,8 +3,8 @@ package Main;
 public class Game {
 
 	// dimensions
-	public static final int WIDTH = 1280;
-	public static final int HEIGHT = 720;
+	public static final int WIDTH = 1248;
+	public static final int HEIGHT = 702;
 	
 	// game speed
 	public static final int NOTE_SPEED = 15;

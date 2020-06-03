@@ -117,21 +117,56 @@ public class MenuState extends GameState{
 		}
 			
 	}
+	
+	
 
 	@Override
 	public void draw(Graphics2D g) {
 		
 		// background
 		g.drawImage(imageMenuBackground, 0, 0, null);
+				
+		//add some UI stuff
+		g.drawImage(imagebot, 0, 120,null);
+		g.drawImage(imagetop, 0, -10 ,null);
+		
+		g.setColor(Color.white);
+		g.setFont(new Font(
+				"HYHeadLine", 
+				Font.PLAIN, 
+				25));
+		g.drawString(
+				"LOCAL SCORES:",
+				20, 124 
+				);
+		
+		//scoreboard
+		g.drawRect(20,150,300,400);
+		
+		for(int s = 0; s < 8 ; s++) {
+			g.drawLine(20, 200 + s*50, 320, 200 + s*50);
+			g.drawString("integrate database pls", 24, 190 + s*50);
+		}
 		
 		// Indication to select music
 		for (int i = 0; i < tracks.size(); i++) {
-			//double dif = 200 * Math.sin(i * 124 * Math.PI / 180);
+			//double dif = 200 * Math.sin(i * 124 * Math.PI / 180); <--????
 			int yInterval = i * 100;
 			
 			// selected music
-		
+			
 			if(i == currentChoice) {
+				
+				g.setColor(Color.white);
+				g.setFont(new Font(
+						"HYHeadLine", 
+						Font.BOLD, 
+						36));
+				g.drawString(
+						tracks.get(i).getTitleName() + " - " + tracks.get(i).getSingerName(),
+						20,50 
+						);
+				
 				g.drawImage(
 						imageHoverOn, 
 						600, 100 + yInterval,
@@ -161,7 +196,7 @@ public class MenuState extends GameState{
 							740 + j*20, 174 +  yInterval , 
 							null);
 				}
-				for (int k = 0; k < 5 - tracks.get(i).getDifficulty(); k++) {
+				for (int k = 0; k < 5; k++) {
 				g.drawImage(
 						imageGrayStar, 
 						740 + k*20, 174 +  yInterval ,
@@ -190,13 +225,11 @@ public class MenuState extends GameState{
 						tracks.get(i).getTitleName(),
 						740, 130 + yInterval 
 						);
+				
+				
 			
 			} 
 		}
-		
-		//add some UI stuff
-		g.drawImage(imagebot, 0, 120,null);
-		g.drawImage(imagetop, 0, -10 ,null);
 		
 		
 		//tells user developing stuff

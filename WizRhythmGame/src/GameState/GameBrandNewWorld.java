@@ -498,13 +498,13 @@ public class GameBrandNewWorld extends GameState
 		g.setRenderingHint(
 				RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		g.setFont(new Font("Elephant", Font.BOLD, 30));
-		g.drawString("D-51 - Brand New World\"", 20, 700);
+		g.setFont(new Font("Elephant", Font.BOLD, 26));
+		g.drawString("D-51 - Brand New World\"", 10, 694);
 		
 		g.setColor(Color.LIGHT_GRAY);
-		g.setFont(new Font("Elephant", Font.BOLD, 30));
-		g.drawString(String.valueOf(score), 600, 700);
-		g.drawString("Hard", 1180, 700);
+		g.setFont(new Font("Elephant", Font.BOLD, 26));
+		g.drawString(String.valueOf(score), 636, 694);
+		g.drawString("Hard",1140, 694);
 		
 		for (int i = 0; i < notes.size(); i++) {
 			Note note = notes.get(i);

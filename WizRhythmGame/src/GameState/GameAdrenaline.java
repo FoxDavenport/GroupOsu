@@ -518,14 +518,14 @@ public class GameAdrenaline extends GameState
 		g.setRenderingHint(
 				RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		g.setFont(new Font("Elephant", Font.BOLD, 30));
-		g.drawString("Anime Girls- adrenaline", 20, 700);
+		g.setFont(new Font("Elephant", Font.BOLD, 26));
+		g.drawString("Anime Girls- adrenaline", 10, 694);
 		
 		// gets score displayer and how difficult level is
 		g.setColor(Color.LIGHT_GRAY);
-		g.setFont(new Font("Elephant", Font.BOLD, 30));
-		g.drawString(String.valueOf(score), 600, 700);
-		g.drawString("Easy", 1180, 700);
+		g.setFont(new Font("Elephant", Font.BOLD, 26));
+		g.drawString(String.valueOf(score), 636, 694);
+		g.drawString("Easy", 1140, 694);
 		
 		// draws our notes
 		for (int i = 0; i < notes.size(); i++) {
