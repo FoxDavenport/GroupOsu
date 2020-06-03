@@ -78,15 +78,20 @@ public class Note {
 			close();
 			return "Miss";
 		}
-		else if (y >= 560) {
+		else if (y >= 575 && y <600 ) {
 			System.out.println("Great");
 			close();
 			return "Great";
 		}
-		else if (y >= 570) {
+		else if (y >= 600 & y<625) {
 			System.out.println("Good");
 			close();
 			return "Good";
+		} 
+		else if (y >= 550 && y<575) {
+			System.out.println("Perfect");
+			close();
+			return "Perfect";
 		} 
 		return "Miss";
 	}
