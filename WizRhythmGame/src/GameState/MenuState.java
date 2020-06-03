@@ -331,7 +331,7 @@ public class MenuState extends GameState{
 			select();
 		}
 		
-		if(k == KeyEvent.VK_LEFT) {
+		if(k == KeyEvent.VK_UP) {
 			currentChoice--;
 			if(currentChoice == -1)
 				currentChoice = tracks.size()- 1 ;
@@ -344,7 +344,7 @@ public class MenuState extends GameState{
 					);
 		}
 		
-		if(k == KeyEvent.VK_RIGHT) {
+		if(k == KeyEvent.VK_DOWN) {
 			currentChoice++;
 			if(currentChoice == tracks.size())  
 				currentChoice = 0;
