@@ -78,26 +78,26 @@ public class GameMariya extends GameState
 	}
 	
 	public void setBeat() {
-		startTime = 1333; 
+		startTime = 1100; 
 		int gap = (int)(60.0 / 360 * 1000);
 		beats = new Beat[] {
-				new Beat(startTime + gap * 4, "Space"),
-				new Beat(startTime + gap * 7, "L"),
-				new Beat(startTime + gap * 8, "D"),
-				new Beat(startTime + gap * 11, "F"),
-				new Beat(startTime + gap * 12, "F"),
-				new Beat(startTime + gap * 14, "F"), 
+				new Beat(startTime + gap * 1, "S"),
+				new Beat(startTime + gap * 3, "D"),
+				new Beat(startTime + gap * 5, "S"),
+				new Beat(startTime + gap * 7, "D"),
+				new Beat(startTime + gap * 9, "F"),
+				new Beat(startTime + gap * 11, "Space"), 
 				new Beat(startTime + gap * 18, "S"), 
 				new Beat(startTime + gap * 19, "D"),
 				new Beat(startTime + gap * 20, "F"),             
 				new Beat(startTime + gap * 21, "D"),
-				new Beat(startTime + gap * 22, "S"), 
+				new Beat(startTime + gap * 22, "K"), 
 				new Beat(startTime + gap * 25, "F"),
 				new Beat(startTime + gap * 26, "K"),
 				new Beat(startTime + gap * 29, "L"),
 				new Beat(startTime + gap * 30, "L"),
 				new Beat(startTime + gap * 32, "L"),  
-				new Beat(startTime + gap * 36, "K"),
+				new Beat(startTime + gap * 36, "L"),
 				new Beat(startTime + gap * 37, "J"),
 				new Beat(startTime + gap * 38, "D"),
 				new Beat(startTime + gap * 39, "S"),
