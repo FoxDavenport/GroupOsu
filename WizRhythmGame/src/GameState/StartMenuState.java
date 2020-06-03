@@ -28,6 +28,7 @@ public class StartMenuState extends GameState{
 		init();
 	}
 	
+	
 
 	@Override
 	public void init() {
