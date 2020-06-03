@@ -604,6 +604,9 @@ public class GameMariya extends GameState
 			if(input.equals(note.getNoteType()))
 			{
 				if (note.judge().equals("Miss")) {
+					effect.setCombo("Miss", 0); 
+					effect.setPosition(note.getNoteType());
+					effect.setEffect(); 
 					combo = 0;
 				}
 				if (note.judge().equals("Perfect")){
@@ -611,7 +614,7 @@ public class GameMariya extends GameState
 					effect.setPosition(note.getNoteType());
 					effect.setEffect(); 
 					combo++;
-					score += 80 + combo * 5;
+					score += 100 + combo * 5;
 				}
 				if (note.judge().equals("Great")){
 					effect.setCombo("Great", combo); 
@@ -625,7 +628,7 @@ public class GameMariya extends GameState
 					effect.setPosition(note.getNoteType());
 					effect.setEffect(); 
 					combo++;
-					score += 80 + combo * 5;
+					score += 60 + combo * 5;
 				}
 				break;
 			}
