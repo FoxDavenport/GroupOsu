@@ -53,10 +53,10 @@ public class MenuState extends GameState{
 		//makes the tracks array using the tracks class
 		tracks = new ArrayList<Track>();
 
-		tracks.add(new Track("Anime Girls", "adrenaline", 1));
-		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 2));
-		tracks.add(new Track("dj Taka", "True Blue", 2));
-		tracks.add(new Track("D-51", "Brand New World", 4));
+		tracks.add(new Track("Anime Girls", "adrenaline", 2));
+		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
+		tracks.add(new Track("dj Taka", "True Blue", 4));
+		tracks.add(new Track("D-51", "Brand New World", 3));
 		
 		try { //get all of our juicy images
 

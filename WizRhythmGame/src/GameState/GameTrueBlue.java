@@ -504,7 +504,7 @@ public class GameTrueBlue extends GameState
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
 		g.drawString(String.valueOf(score), 636, 694);
-		g.drawString("Easy",1140, 694);
+		g.drawString("Hard",1140, 694);
 		
 		for (int i = 0; i < notes.size(); i++) {
 			Note note = notes.get(i);
