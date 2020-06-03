@@ -126,14 +126,15 @@ public class MenuState extends GameState{
 		
 		// Indication to select music
 		for (int i = 0; i < tracks.size(); i++) {
-			double dif = 200 * Math.sin(i * 124 * Math.PI / 180);
+			//double dif = 200 * Math.sin(i * 124 * Math.PI / 180);
+			int yInterval = i * 100;
 			
 			// selected music
+		
 			if(i == currentChoice) {
 				g.drawImage(
 						imageHoverOn, 
-						40+ i * 300, 
-						220 - (int) dif,
+						600, 100 + yInterval,
 						null
 						);
 				
@@ -144,36 +145,26 @@ public class MenuState extends GameState{
 						25));
 				g.drawString(
 						tracks.get(i).getSingerName(),
-						200+ i * 300,
-						380 - (int) dif
+						740, 160 + yInterval 
 						);
 				g.drawString(
 						tracks.get(i).getTitleName(),
-						200+ i * 300,
-						420 - (int) dif
+						740, 130 + yInterval 
 						);
 
-				g.drawLine(
-						200+ i * 300,
-						393 - (int) dif,
-						350+ i * 300, 
-						393 - (int) dif
-						);
-				
+			
 				//shows difficulty
 				int j;
 				for (j = 0; j < tracks.get(i).getDifficulty(); j++) {
 					g.drawImage(
 							imageYellowStar, 
-							200+ i * 300 + j * 20,
-							440 - (int) dif,
+							740 + j*20, 174 +  yInterval , 
 							null);
 				}
 				for (int k = 0; k < 5 - tracks.get(i).getDifficulty(); k++) {
 				g.drawImage(
 						imageGrayStar, 
-						200+ i * 300 + j * 20 + k * 20,  
-						440 - (int) dif,
+						740 + k*20, 174 +  yInterval ,
 						null);
 				}
 			}
@@ -182,8 +173,7 @@ public class MenuState extends GameState{
 			else {
 				g.drawImage(
 						imageHoverOff, 
-						40+ i * 300,
-						220 - (int) dif,
+						600, 100 + yInterval,
 						null
 						);
 				
@@ -194,20 +184,11 @@ public class MenuState extends GameState{
 						25));
 				g.drawString(
 						tracks.get(i).getSingerName(),
-						200+ i * 300,
-						380 - (int) dif
+						740, 160 + yInterval 
 						);
 				g.drawString(
 						tracks.get(i).getTitleName(),
-						200+ i * 300,
-						420 - (int) dif
-						);
-
-				g.drawLine(
-						200+ i * 300 ,
-						393 - (int) dif,
-						350+ i * 300, 
-						393 - (int) dif
+						740, 130 + yInterval 
 						);
 			
 			} 
@@ -215,7 +196,7 @@ public class MenuState extends GameState{
 		
 		//add some UI stuff
 		g.drawImage(imagebot, 0, 120,null);
-		g.drawImage(imagetop, 0, -300,null);
+		g.drawImage(imagetop, 0, -10 ,null);
 		
 		
 		//tells user developing stuff
