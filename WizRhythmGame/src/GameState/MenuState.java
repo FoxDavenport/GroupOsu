@@ -211,7 +211,6 @@ public class MenuState extends GameState{
 		//scoreboard
 		g.drawRect(20,150,300,350);
 		
-<<<<<<< HEAD
 		ArrayList<String> hoverMap = new ArrayList<String>();
 		
 		switch(currentChoice)
@@ -237,12 +236,6 @@ public class MenuState extends GameState{
 		for(int q = 0;q < hoverMap.size();q++) {
 			g.drawLine(20, 200 + q*50, 320, 200 + q*50);
 			g.drawString(hoverMap.get(q), 24, 190 + q*50);
-=======
-		for( int i = 0; i < 5 ; i++) {
-			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
-			g.drawString("integrate database pls", 24, 190 + i*50);
->>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git
-		}
 		
 		// Indication to select music
 		for (int i = 0; i < tracks.size(); i++) {
@@ -351,6 +344,7 @@ public class MenuState extends GameState{
 					520, 
 					370
 					);
+		}
 		}
 		
 		
