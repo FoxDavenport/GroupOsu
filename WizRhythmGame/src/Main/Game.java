@@ -1,5 +1,7 @@
 package Main;
 
+import GameState.CollectName;
+
 public class Game {
 
 	// dimensions
@@ -11,7 +13,7 @@ public class Game {
 	public static final int SLEEP_TIME = 10;
 	
 	public static void main(String[] args) {
-		new GameFrame();
+		CollectName.main(args);
 	}
 
 }

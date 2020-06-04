@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 
 import GameState.GameStateManager;
+import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class GameFrame extends JFrame implements
@@ -53,7 +54,7 @@ public class GameFrame extends JFrame implements
 		setShape(new RoundRectangle2D.Double(
 				0,0,Game.WIDTH,Game.HEIGHT,40,40)); 
 		setVisible(true);
-		setLayout(null);
+		getContentPane().setLayout(null);
 		addKeyListener(this);
 		
 	

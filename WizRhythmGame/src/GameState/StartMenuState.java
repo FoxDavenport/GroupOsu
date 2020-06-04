@@ -71,7 +71,7 @@ public class StartMenuState extends GameState{
 		g.setColor(new Color(255, 255, 255, (int)alpha));
 		g.drawString(
 				"Press space bar to continue",
-				310, 580);
+				300, 580);
 		
 		// version info
 		g.setColor(Color.white);
