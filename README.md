@@ -20,5 +20,4 @@ Artifact type: samples (do for both)
 
 Version type: 1.0.0
 
-
-Make sure Aadil can give you access to the Database and allow you to use it
+After you click the space bar, it will take some time to load Song Selection UI. Please be patient!
