@@ -7,6 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import DatabaseInfo.CompareScore;
 import GameElement.Beat;
 import GameElement.EffectAnimation;
 import GameElement.InterfaceBackground;
@@ -655,6 +656,9 @@ public class GameLupin extends GameState
 			} catch (Exception e) {e.printStackTrace();}
 			rbg.calRank();
 			displayResult = true;
+			
+			CompareScore c1 = new CompareScore("Lupin", score, CollectName.userName);
+			MenuState.RetrieveLeaderboard("Lupin");
 		}
 
 	}

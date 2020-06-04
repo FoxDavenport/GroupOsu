@@ -7,6 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import DatabaseInfo.CompareScore;
 import GameElement.Beat;
 import GameElement.EffectAnimation;
 import GameElement.InterfaceBackground;
@@ -692,6 +693,9 @@ public class GameAdrenaline extends GameState
 			} catch (Exception e) {e.printStackTrace();}
 			rbg.calRank();
 			displayResult = true;
+			
+			CompareScore c = new CompareScore("Adrenaline", score, CollectName.userName);
+			MenuState.RetrieveLeaderboard("Adrenaline");
 		}
 
 	}

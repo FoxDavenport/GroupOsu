@@ -6,14 +6,32 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.imageio.ImageIO;
+
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.ItemCollection;
+import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
+import com.amazonaws.services.dynamodbv2.document.Table;
+import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 
 import GameEnvironment.Music;
 import GameEnvironment.Track;
 
 
 public class MenuState extends GameState{
+	
+	//Leaderboard Arrays
+	static ArrayList<String> Adrenaline = new ArrayList<String>();
+	static ArrayList<String> BNW = new ArrayList<String>();
+	static ArrayList<String> Lupin = new ArrayList<String>();
+	static ArrayList<String> Mariya = new ArrayList<String>();
 
 	// image
 	private BufferedImage imageMenuBackground; 
@@ -57,6 +75,12 @@ public class MenuState extends GameState{
 		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
 		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
+		
+		RetrieveLeaderboard("Adrenaline");
+		RetrieveLeaderboard("BNW");
+		RetrieveLeaderboard("Lupin");
+		RetrieveLeaderboard("Mariya");
+		
 		
 		try { //get all of our juicy images
 
@@ -114,6 +138,7 @@ public class MenuState extends GameState{
 		playMusic(tracks.get(currentChoice). 
 				getTitleName()+"_hightlight.mp3"
 				);
+		
 		
 	}
 	
@@ -176,9 +201,31 @@ public class MenuState extends GameState{
 		//scoreboard
 		g.drawRect(20,150,300,350);
 		
-		for( int i = 0; i < 7 ; i++) {
-			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
-			g.drawString("integrate database pls", 24, 190 + i*50);
+		ArrayList<String> hoverMap = new ArrayList<String>();
+		
+		switch(currentChoice)
+		{
+			case 0:
+				hoverMap = Adrenaline;
+				break;
+			case 1:
+				hoverMap = Mariya;
+				break;
+			case 2:
+				hoverMap = Lupin;
+				break;
+			case 3:
+				hoverMap = BNW;
+				break;
+		}
+		
+		if(hoverMap.size() > 1)
+			if(Integer.parseInt(getInt(hoverMap.get(0))) < Integer.parseInt(getInt(hoverMap.get(1))))
+				Collections.reverse(hoverMap);
+			
+		for(int q = 0;q < hoverMap.size();q++) {
+			g.drawLine(20, 200 + q*50, 320, 200 + q*50);
+			g.drawString(hoverMap.get(q), 24, 190 + q*50);
 		}
 		
 		// Indication to select music
@@ -305,15 +352,19 @@ public class MenuState extends GameState{
 	
 	public void select() {
 		if (currentChoice == 0) {
+			Adrenaline.removeAll(Adrenaline);
 			gsm.setState(GameStateManager.adrenaline_STATE);
 		}
 		if (currentChoice == 1) {
+			Mariya.removeAll(Mariya);
 			gsm.setState(GameStateManager.Mariya_STATE);
 		}
 		if (currentChoice == 2) {
+			BNW.removeAll(BNW);
 			gsm.setState(GameStateManager.Lupin_STATE);
 		}
 		if (currentChoice == 3) {
+			Lupin.removeAll(Lupin);
 			gsm.setState(GameStateManager.BrandNewWorld_STATE);
 		}
 	}
@@ -360,6 +411,77 @@ public class MenuState extends GameState{
 	
 	@Override
 	public void keyReleased(int k) {}
+	
+	public static void RetrieveLeaderboard(String lvlName)
+	{
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+	            .withRegion("us-east-1")
+	            .build();
+	        
+	        DynamoDB db = new DynamoDB(client);
+	        
+	        Table t = db.getTable("RhythmGameScores");
+	        
+	        HashMap<String, String> nameMap = new HashMap<String, String>();
+	        nameMap.put("#lvlname", "LevelName");
+
+	        HashMap<String, Object> valueMap = new HashMap<String, Object>();
+	        valueMap.put(":lvl", lvlName);
+	        
+	        QuerySpec querySpec = new QuerySpec().withKeyConditionExpression("#lvlname = :lvl").withNameMap(nameMap).withValueMap(valueMap);
+	        
+	        ItemCollection<QueryOutcome> items = t.query(querySpec);
+
+            Iterator<Item> iter = items.iterator();
+            while (iter.hasNext()) {
+                Item item = iter.next();
+                
+                switch(lvlName)
+                {
+                case "Adrenaline":
+                {
+                	Adrenaline.add(item.get("Name") + ": " + item.getInt("Score"));
+                	break;
+                }
+                
+                case "BNW":
+                {
+                	BNW.add(BNW.size(), item.get("Name") + ": " + item.getInt("Score"));
+                	break;
+                }
+                
+                case "Lupin":
+                {
+                	Lupin.add(Lupin.size(), item.get("Name") + ": " + item.getInt("Score"));
+                	break;
+                }
+                
+                case "Mariya":
+                {
+                	Mariya.add(Mariya.size(), item.get("Name") + ": " + item.getInt("Score"));
+                	break;
+                }
+                }
+            }
+            
+            
+
+	        
+	}
+	
+	public static String getInt(String s) 
+    { 
+        s = s.replaceAll("[^\\d]", " "); 
+        
+        s = s.trim(); 
+        
+        s = s.replaceAll(" +", " "); 
+  
+        if (s.equals("")) 
+            return "-1"; 
+  
+        return s; 
+    } 
 	
 }
 

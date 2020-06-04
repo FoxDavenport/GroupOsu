@@ -39,6 +39,7 @@ import java.awt.Panel;
 public class CollectName implements ActionListener{
 	
 	private Music transition = new Music("wow.mp3", false);
+	public static String userName;
 
     protected void initUI() throws MalformedURLException {
     	
@@ -78,6 +79,7 @@ public class CollectName implements ActionListener{
         		{
         			transition.start();
         			addNameToTxt(name.getText());
+        			userName = name.getText();
         			frame.setState(Frame.ICONIFIED);
         			new GameFrame();
         		}

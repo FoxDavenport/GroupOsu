@@ -7,6 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import DatabaseInfo.CompareScore;
 import GameElement.Beat;
 import GameElement.EffectAnimation;
 import GameElement.InterfaceBackground;
@@ -657,6 +658,9 @@ public class GameMariya extends GameState
 			} catch (Exception e) {e.printStackTrace();}
 			rbg.calRank();
 			displayResult = true;
+			
+			CompareScore c2 = new CompareScore("Mariya", score, CollectName.userName);
+			MenuState.RetrieveLeaderboard("Mariya");
 		}
 
 	}
