@@ -23,7 +23,8 @@ Version type: 1.0.0
 After you click the space bar, it will take some time to load Song Selection UI. Please be patient!
 
 
-[default]
-aws_access_key_id=ASIAZYRXIZ2ZFU5P5UVK
-aws_secret_access_key=WQlwex5MFYt2IivQcybf6iYk/ewL2JeMsd/TW3Hz
-aws_session_token=FwoGZXIvYXdzEDIaDMSzeniVpqbGcLWZHCLDAXjmApdXqSeoDkya7bb5Or3z8GI2q2ihOH+uxP0tAVIOeSYHjE9GHBttKnuauHTrexeCKexgcw9akYxYE7iuFowQ5pE5aiGDwqtniVr1Qu5ipRu4LBH4SNIEsFmuhp/RVVDykcxwzTVY4G0XtrYo/V+pdBHcY/9saKQBygWBAK0g3Pl1NQVzL1gZT2CI1EHtvKb/E9XMMIx4f4AQ5BNYxdJMzp8HxYEYO3etS/INAtoFC/qqU28CA4JBW4CQVMrk/yLZuCjD5uL2BTIt39f36BmrAyWQp7SHoRd++GalRFcTgjUk4r6cmXeIDU5BecNvWO1SAQN86/EQ
+Amazon access stuff:
+
+Access key ID: AKIASAOGSC2NQQ432ZYG 
+
+Secret access key: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
