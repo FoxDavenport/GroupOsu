@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h
 hg
 EZ
@@ -55,3 +56,35 @@ h
 h
 yay
 nice
+=======
+Fox
+Fox
+Fox
+Fox
+Fox
+Fox
+Fox
+Fox
+Bob 
+Fox
+FOX
+nofnoa
+Fox
+j cf sajfa
+Fox
+Fox
+asfhasf
+ vhuv
+zvz
+asfasf
+Fox
+Fox
+Fox
+Fox
+fdkof
+Fox
+Fox
+fsa
+fa ad
+PlsEndMySuffering
+>>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git

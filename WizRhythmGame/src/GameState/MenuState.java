@@ -38,6 +38,7 @@ public class MenuState extends GameState{
 	private BufferedImage imageMenuBackground2; 
 	private BufferedImage imageMenuBackground3; 
 	private BufferedImage imageMenuBackground4; 
+	private BufferedImage imageMenuBackground5;
 	private BufferedImage imageHoverOn;
 	private BufferedImage imageYellowStar;
 	private BufferedImage imageGrayStar;
@@ -54,6 +55,7 @@ public class MenuState extends GameState{
 	public static final int Mariya_MUSIC  = 1;
 	public static final int Lupin_MUSIC = 2;
 	public static final int BrandNewWorld_MUSIC=3;
+	public static final int Naruto_Music=4;
 	
 	// selected music
 	private Music selectedMusic;
@@ -72,9 +74,10 @@ public class MenuState extends GameState{
 		tracks = new ArrayList<Track>();
 
 		tracks.add(new Track("Anime Girls", "adrenaline", 2));
-		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
+		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 5));
 		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
+		tracks.add(new Track("Silhouette", "Naruto", 3));
 		
 		RetrieveLeaderboard("Adrenaline");
 		RetrieveLeaderboard("BNW");
@@ -99,6 +102,10 @@ public class MenuState extends GameState{
 			imageMenuBackground4 = ImageIO.read(
 					getClass().getResourceAsStream(
 							"/image/EniesLobby.png")
+					);
+			imageMenuBackground5 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/Naruto.jpg")
 					);
 		
 			imageHoverOn = ImageIO.read(
@@ -181,6 +188,9 @@ public class MenuState extends GameState{
 				if(i == 3) {
 					g.drawImage(imageMenuBackground4, 0, 0, null);
 				}
+				if(i == 4) {
+					g.drawImage(imageMenuBackground5, 0, 0, null);
+				}
 			}
 		}
 			
@@ -201,6 +211,7 @@ public class MenuState extends GameState{
 		//scoreboard
 		g.drawRect(20,150,300,350);
 		
+<<<<<<< HEAD
 		ArrayList<String> hoverMap = new ArrayList<String>();
 		
 		switch(currentChoice)
@@ -226,6 +237,11 @@ public class MenuState extends GameState{
 		for(int q = 0;q < hoverMap.size();q++) {
 			g.drawLine(20, 200 + q*50, 320, 200 + q*50);
 			g.drawString(hoverMap.get(q), 24, 190 + q*50);
+=======
+		for( int i = 0; i < 5 ; i++) {
+			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
+			g.drawString("integrate database pls", 24, 190 + i*50);
+>>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git
 		}
 		
 		// Indication to select music
@@ -366,6 +382,9 @@ public class MenuState extends GameState{
 		if (currentChoice == 3) {
 			Lupin.removeAll(Lupin);
 			gsm.setState(GameStateManager.BrandNewWorld_STATE);
+		}
+		if (currentChoice == 4) {
+			gsm.setState(GameStateManager.Naruto_STATE);
 		}
 	}
 	

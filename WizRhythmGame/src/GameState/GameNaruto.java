@@ -7,7 +7,6 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import DatabaseInfo.CompareScore;
 import GameElement.Beat;
 import GameElement.EffectAnimation;
 import GameElement.InterfaceBackground;
@@ -15,36 +14,43 @@ import GameElement.Note;
 import GameElement.ResultBackground;
 import GameEnvironment.Music;
 
-//read GameAdrenaline for explanation
-public class GameLupin extends GameState
+public class GameNaruto extends GameState
                    implements Runnable {
 
+	//sets the basic variables 
 	private InterfaceBackground bg;
 	private Music gameMusic;
 	private Beat[] beats = null;
 	
-	
+	//gets our array of notes for later
 	private ArrayList<Note> notes = new ArrayList<Note>();
 	
-	
+	//get game states ready for later
 	private Thread game;
 	
+	//get our score and combo for later
 	private int score;
 	private int combo;
 	
+	// effect motion
 	private EffectAnimation effect;
 	
+	//start time
 	private int startTime;
 	
+	// results
 	private boolean displayResult;
 	private boolean showingResult;
 	private ResultBackground rbg;
 	
+	// exit boolean
 	private boolean exit;
 	
+	// beat
 	private Music beatSound;
 	
-	public GameLupin(GameStateManager gsm) {
+	//runs when GameNaruto state is called
+	public GameNaruto(GameStateManager gsm) {
 		this.gsm = gsm;
 		
 		init();
@@ -52,35 +58,46 @@ public class GameLupin extends GameState
 	
 	@Override
 	public void init() {
+		
+		// start score and combo at 0
 		score = 0; combo = 0;
 		
+		// don't show for now till end
 		displayResult = false;
 		showingResult = false;
 		rbg = new ResultBackground();
 		
-		bg = new InterfaceBackground("/image/lupin.jpg");
+		// sets the background 
+		bg = new InterfaceBackground("/image/Naruto.jpg");
 		
+		//sets the BPM and such from the beat class
 		setBeat();
 		
-		gameMusic = new Music("82.99 F.M.mp3", false);
+		// gets the music file to be played and starts playing it
+		gameMusic = new Music("Naruto.mp3", false);
 		gameMusic.start();
 		
+		// effects for later
 		effect = new EffectAnimation();
 		
+		// starts the game
 		game = new Thread(this);
 		game.start();
 		
+		// exit set false for now
 		exit = false;
 		
-		
+		// beat sound ready for later
 		beatSound = new Music("beat.mp3", false);
 		
 	}
 	
 	public void setBeat() {
 		startTime = 1333; 
-		int gap = (int)(60.0 / 360 * 1000);
+		// sets start time for notes
+		int gap = (int)(60.0 / 360 * 1000); //sets the gap to this to increment notes
 		beats = new Beat[] {
+				//this is what gets our notes assigned to keys and timings
 				new Beat(startTime + gap * 4, "Space"),
 				new Beat(startTime + gap * 7, "L"),
 				new Beat(startTime + gap * 8, "D"),
@@ -96,7 +113,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 26, "K"),
 				new Beat(startTime + gap * 29, "L"),
 				new Beat(startTime + gap * 30, "L"),
-				new Beat(startTime + gap * 32, "L"),  
+				new Beat(startTime + gap * 32, "L"), 
 				new Beat(startTime + gap * 36, "K"),
 				new Beat(startTime + gap * 37, "J"),
 				new Beat(startTime + gap * 38, "D"),
@@ -117,7 +134,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 59, "L"),
 				new Beat(startTime + gap * 60, "S"),  
 				new Beat(startTime + gap * 61, "D"),
-				new Beat(startTime + gap * 62, "F"), 
+				new Beat(startTime + gap * 62, "F"),
 				new Beat(startTime + gap * 66, "S"), 
 				new Beat(startTime + gap * 67, "D"),
 				new Beat(startTime + gap * 70, "D"),
@@ -157,12 +174,12 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 123, "Space"), 
 				new Beat(startTime + gap * 124, "Space"),
 				new Beat(startTime + gap * 125, "Space"),
-				new Beat(startTime + gap * 126, "Space"), 
+				new Beat(startTime + gap * 126, "Space"),
 				new Beat(startTime + gap * 128, "F"),
 				new Beat(startTime + gap * 129, "D"),
 				new Beat(startTime + gap * 130, "F"), 
 				new Beat(startTime + gap * 131, "K"), 
-				new Beat(startTime + gap * 132, "K"), 
+				new Beat(startTime + gap * 132, "K"),
 				new Beat(startTime + gap * 134, "D"),
 				new Beat(startTime + gap * 135, "S"),              
 				new Beat(startTime + gap * 136, "D"),
@@ -187,7 +204,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 157, "K"),
 				new Beat(startTime + gap * 158, "L"),
 				new Beat(startTime + gap * 159, "L"),
-				new Beat(startTime + gap * 161, "L"),
+				new Beat(startTime + gap * 161, "L"),  
 				new Beat(startTime + gap * 162, "K"),
 				new Beat(startTime + gap * 163, "J"),
 				new Beat(startTime + gap * 164, "D"),
@@ -268,7 +285,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 261, "L"),
 				new Beat(startTime + gap * 262, "S"),  
 				new Beat(startTime + gap * 263, "D"),
-				new Beat(startTime + gap * 264, "F"), 
+				new Beat(startTime + gap * 264, "F"),
 				new Beat(startTime + gap * 268, "S"), 
 				new Beat(startTime + gap * 269, "D"),
 				new Beat(startTime + gap * 270, "D"),
@@ -362,7 +379,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 369, "L"), 
 				new Beat(startTime + gap * 370, "Space"), 
 				new Beat(startTime + gap * 371, "L"),
-				new Beat(startTime + gap * 373, "L"),  
+				new Beat(startTime + gap * 373, "L"), 
 				new Beat(startTime + gap * 374, "K"),
 				new Beat(startTime + gap * 375, "J"),
 				new Beat(startTime + gap * 376, "D"),
@@ -383,7 +400,7 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 394, "L"),
 				new Beat(startTime + gap * 395, "S"),  
 				new Beat(startTime + gap * 396, "D"),
-				new Beat(startTime + gap * 397, "F"),
+				new Beat(startTime + gap * 397, "F"), 
 				new Beat(startTime + gap * 401, "S"), 
 				new Beat(startTime + gap * 402, "D"),
 				new Beat(startTime + gap * 406, "D"),
@@ -457,267 +474,13 @@ public class GameLupin extends GameState
 				new Beat(startTime + gap * 495, "Space"),
 				new Beat(startTime + gap * 496, "Space"),
 				new Beat(startTime + gap * 497, "Space"),
-				new Beat(startTime + gap * 498, "S"), 
-				new Beat(startTime + gap * 500, "F"),
-				new Beat(startTime + gap * 501, "D"),
-				new Beat(startTime + gap * 502, "S"),
-				new Beat(startTime + gap * 505, "D"),
-				new Beat(startTime + gap * 506, "F"), 
-				new Beat(startTime + gap * 507, "D"),
-				new Beat(startTime + gap * 508, "J"), 
-				new Beat(startTime + gap * 509, "S"), 
-				new Beat(startTime + gap * 511, "S"),
-				new Beat(startTime + gap * 512, "D"),              
-				new Beat(startTime + gap * 513, "J"),
-				new Beat(startTime + gap * 514, "K"),  
-				new Beat(startTime + gap * 515, "L"),
-				new Beat(startTime + gap * 516, "D"), 
-				new Beat(startTime + gap * 517, "K"),
-				new Beat(startTime + gap * 518, "L"), 
-				new Beat(startTime + gap * 519, "Space"), 
-				new Beat(startTime + gap * 520, "L"),
-				new Beat(startTime + gap * 522, "L"),  
-				new Beat(startTime + gap * 523, "K"),
-				new Beat(startTime + gap * 524, "J"),
-				new Beat(startTime + gap * 524, "D"),
-				new Beat(startTime + gap * 524, "S"),
-				new Beat(startTime + gap * 525, "Space"), 
-				new Beat(startTime + gap * 527, "D"),
-				new Beat(startTime + gap * 529, "S"),
-				new Beat(startTime + gap * 530, "D"),
-				new Beat(startTime + gap * 531, "L"), 
-				new Beat(startTime + gap * 533, "Space"), 
-				new Beat(startTime + gap * 534, "Space"),
-				new Beat(startTime + gap * 535, "Space"),
-				new Beat(startTime + gap * 536, "Space"), 
-				new Beat(startTime + gap * 537, "F"),
-				new Beat(startTime + gap * 538, "D"),
-				new Beat(startTime + gap * 539, "F"), 
-				new Beat(startTime + gap * 540, "K"), 
-				new Beat(startTime + gap * 542, "D"),
-				new Beat(startTime + gap * 543, "S"),              
-				new Beat(startTime + gap * 544, "D"),
-				new Beat(startTime + gap * 545, "F"),  
-				new Beat(startTime + gap * 546, "D"), 
-				new Beat(startTime + gap * 548, "K"), 
-				new Beat(startTime + gap * 549, "J"),
-				new Beat(startTime + gap * 550, "K"), 
-				new Beat(startTime + gap * 552, "Space"),
-				new Beat(startTime + gap * 554, "Space"),
-				new Beat(startTime + gap * 555, "L"),
-				new Beat(startTime + gap * 556, "D"),
-				new Beat(startTime + gap * 557, "F"),
-				new Beat(startTime + gap * 558, "F"),
-				new Beat(startTime + gap * 560, "F"), 
-				new Beat(startTime + gap * 562, "S"), 
-				new Beat(startTime + gap * 564, "D"),
-				new Beat(startTime + gap * 565, "F"),             
-				new Beat(startTime + gap * 568, "D"),
-				new Beat(startTime + gap * 570, "S"), 
-				new Beat(startTime + gap * 572, "F"),
-				new Beat(startTime + gap * 572, "K"),
-				new Beat(startTime + gap * 574, "L"),
-				new Beat(startTime + gap * 575, "L"),
-				new Beat(startTime + gap * 576, "L"),
-				new Beat(startTime + gap * 577, "K"),
-				new Beat(startTime + gap * 578, "J"),
-				new Beat(startTime + gap * 580, "D"),
-				new Beat(startTime + gap * 585, "S"),
-				new Beat(startTime + gap * 586, "Space"), 
-				new Beat(startTime + gap * 587, "D"),
-				new Beat(startTime + gap * 588, "S"),
-				new Beat(startTime + gap * 589, "D"),
-				new Beat(startTime + gap * 591, "F"),
-				new Beat(startTime + gap * 593, "F"),
-				new Beat(startTime + gap * 595, "J"),
-				new Beat(startTime + gap * 596, "L"), 
-				new Beat(startTime + gap * 597, "S"), 
-				new Beat(startTime + gap * 598, "D"),
-				new Beat(startTime + gap * 599, "F"),              
-				new Beat(startTime + gap * 600, "J"),
-				new Beat(startTime + gap * 601, "K"),  
-				new Beat(startTime + gap * 604, "L"),
-				new Beat(startTime + gap * 608, "S"),  
-				new Beat(startTime + gap * 610, "D"),
-				new Beat(startTime + gap * 612, "F"), 
-				new Beat(startTime + gap * 613, "S"), 
-				new Beat(startTime + gap * 615, "D"),
-				new Beat(startTime + gap * 617, "D"),
-				new Beat(startTime + gap * 618, "D"),
-				new Beat(startTime + gap * 619, "D"),
-				new Beat(startTime + gap * 620, "S"),
-				new Beat(startTime + gap * 621, "D"),
-				new Beat(startTime + gap * 622, "S"),
-				new Beat(startTime + gap * 624, "Space"), 
-				new Beat(startTime + gap * 625, "D"),
-				new Beat(startTime + gap * 627, "S"),
-				new Beat(startTime + gap * 627, "D"),
-				new Beat(startTime + gap * 630, "F"),
-				new Beat(startTime + gap * 632, "F"),
-				new Beat(startTime + gap * 633, "J"),
-				new Beat(startTime + gap * 634, "L"), 
-				new Beat(startTime + gap * 635, "S"), 
-				new Beat(startTime + gap * 636, "D"),
-				new Beat(startTime + gap * 637, "F"),              
-				new Beat(startTime + gap * 638, "J"),
-				new Beat(startTime + gap * 639, "K"),  
-				new Beat(startTime + gap * 640, "L"),
-				new Beat(startTime + gap * 641, "S"),  
-				new Beat(startTime + gap * 642, "D"),
-				new Beat(startTime + gap * 643, "F"), 
-				new Beat(startTime + gap * 644, "S"), 
-				new Beat(startTime + gap * 645, "D"),
-				new Beat(startTime + gap * 646, "D"),
-				new Beat(startTime + gap * 647, "D"),
-				new Beat(startTime + gap * 648, "D"),
-				new Beat(startTime + gap * 649, "S"),
-				new Beat(startTime + gap * 650, "D"),
-				new Beat(startTime + gap * 652, "D"),
-				new Beat(startTime + gap * 654, "D"),
-				new Beat(startTime + gap * 655, "S"),
-				new Beat(startTime + gap * 657, "D"),
-				new Beat(startTime + gap * 658, "S"),
-				new Beat(startTime + gap * 659, "Space"), 
-				new Beat(startTime + gap * 660, "D"),
-				new Beat(startTime + gap * 662, "S"),
-				new Beat(startTime + gap * 663, "D"),
-				new Beat(startTime + gap * 664, "F"),
-				new Beat(startTime + gap * 665, "F"),
-				new Beat(startTime + gap * 667, "J"),
-				new Beat(startTime + gap * 668, "L"), 
-				new Beat(startTime + gap * 669, "S"), 
-				new Beat(startTime + gap * 670, "D"),
-				new Beat(startTime + gap * 671, "F"),              
-				new Beat(startTime + gap * 672, "J"),
-				new Beat(startTime + gap * 673, "K"),  
-				new Beat(startTime + gap * 675, "L"),
-				new Beat(startTime + gap * 677, "S"),  
-				new Beat(startTime + gap * 678, "D"),
-				new Beat(startTime + gap * 680, "F"), 
-				new Beat(startTime + gap * 682, "S"), 
-				new Beat(startTime + gap * 683, "D"),
-				new Beat(startTime + gap * 684, "D"),
-				new Beat(startTime + gap * 685, "D"),
-				new Beat(startTime + gap * 687, "D"),
-				new Beat(startTime + gap * 688, "S"),
-				new Beat(startTime + gap * 689, "F"),              
-				new Beat(startTime + gap * 690, "J"),
-				new Beat(startTime + gap * 691, "K"),  
-				new Beat(startTime + gap * 692, "L"),
-				new Beat(startTime + gap * 693, "S"),  
-				new Beat(startTime + gap * 694, "D"),
-				new Beat(startTime + gap * 697, "F"), 
-				new Beat(startTime + gap * 699, "S"), 
-				new Beat(startTime + gap * 700, "D"),
-				new Beat(startTime + gap * 701, "D"),
-				new Beat(startTime + gap * 706, "D"),
-				new Beat(startTime + gap * 707, "D"),
-				new Beat(startTime + gap * 708, "S"),
-				new Beat(startTime + gap * 710, "J"), 
-				new Beat(startTime + gap * 712, "F"),             
-				new Beat(startTime + gap * 714, "D"),
-				new Beat(startTime + gap * 715, "S"), 
-				new Beat(startTime + gap * 717, "S"),
-				new Beat(startTime + gap * 719, "D"),
-				new Beat(startTime + gap * 721, "S"),
-				new Beat(startTime + gap * 723, "D"),
-				new Beat(startTime + gap * 725, "S"),  
-				new Beat(startTime + gap * 726, "S"),
-				new Beat(startTime + gap * 727, "K"),
-				new Beat(startTime + gap * 729, "F"),
-				new Beat(startTime + gap * 730, "D"),
-				new Beat(startTime + gap * 731, "S"), 
-				new Beat(startTime + gap * 734, "F"),
-				new Beat(startTime + gap * 735, "D"),
-				new Beat(startTime + gap * 737, "S"),
-				new Beat(startTime + gap * 738, "D"),
-				new Beat(startTime + gap * 740, "F"), 
-				new Beat(startTime + gap * 742, "D"),
-				new Beat(startTime + gap * 743, "J"), 
-				new Beat(startTime + gap * 745, "S"), 
-				new Beat(startTime + gap * 747, "S"),
-				new Beat(startTime + gap * 750, "D"),              
-				new Beat(startTime + gap * 752, "J"),
-				new Beat(startTime + gap * 753, "K"),  
-				new Beat(startTime + gap * 755, "L"),
-				new Beat(startTime + gap * 756, "D"), 
-				new Beat(startTime + gap * 757, "K"),
-				new Beat(startTime + gap * 759, "L"), 
-				new Beat(startTime + gap * 761, "Space"), 
-				new Beat(startTime + gap * 762, "Space"),
-				new Beat(startTime + gap * 763, "Space"),
-				new Beat(startTime + gap * 764, "Space"), 
-				new Beat(startTime + gap * 765, "F"),
-				new Beat(startTime + gap * 767, "D"),
-				new Beat(startTime + gap * 768, "F"), 
-				new Beat(startTime + gap * 770, "K"), 
-				new Beat(startTime + gap * 772, "K"), 
-				new Beat(startTime + gap * 773, "D"),
-				new Beat(startTime + gap * 775, "S"),              
-				new Beat(startTime + gap * 777, "D"),
-				new Beat(startTime + gap * 778, "F"),  
-				new Beat(startTime + gap * 779, "D"), 
-				new Beat(startTime + gap * 784, "K"), 
-				new Beat(startTime + gap * 788, "J"),
-				new Beat(startTime + gap * 790, "K"), 
-				new Beat(startTime + gap * 792, "Space"),
-				new Beat(startTime + gap * 793, "Space"),
-				new Beat(startTime + gap * 794, "L"),
-				new Beat(startTime + gap * 795, "D"),
-				new Beat(startTime + gap * 796, "F"),
-				new Beat(startTime + gap * 797, "F"),
-				new Beat(startTime + gap * 798, "F"), 
-				new Beat(startTime + gap * 800, "S"), 
-				new Beat(startTime + gap * 803, "D"),
-				new Beat(startTime + gap * 804, "F"),             
-				new Beat(startTime + gap * 805, "D"),
-				new Beat(startTime + gap * 806, "D"),
-				new Beat(startTime + gap * 807, "J"), 
-				new Beat(startTime + gap * 808, "S"), 
-				new Beat(startTime + gap * 809, "S"),
-				new Beat(startTime + gap * 810, "D"),              
-				new Beat(startTime + gap * 815, "J"),
-				new Beat(startTime + gap * 820, "K"),  
-				new Beat(startTime + gap * 827, "L"),
-				new Beat(startTime + gap * 828, "D"), 
-				new Beat(startTime + gap * 829, "K"),
-				new Beat(startTime + gap * 830, "L"), 
-				new Beat(startTime + gap * 832, "Space"), 
-				new Beat(startTime + gap * 833, "Space"),
-				new Beat(startTime + gap * 834, "Space"),
-				new Beat(startTime + gap * 835, "Space"), 
-				new Beat(startTime + gap * 837, "F"),
-				new Beat(startTime + gap * 838, "D"),
-				new Beat(startTime + gap * 840, "F"), 
-				new Beat(startTime + gap * 841, "K"), 
-				new Beat(startTime + gap * 842, "K"), 
-				new Beat(startTime + gap * 843, "D"),
-				new Beat(startTime + gap * 844, "S"),              
-				new Beat(startTime + gap * 846, "D"),
-				new Beat(startTime + gap * 847, "F"),  
-				new Beat(startTime + gap * 848, "D"), 
-				new Beat(startTime + gap * 850, "K"), 
-				new Beat(startTime + gap * 851, "J"),
-				new Beat(startTime + gap * 852, "K"), 
-				new Beat(startTime + gap * 854, "Space"),
-				new Beat(startTime + gap * 855, "Space"),
-				new Beat(startTime + gap * 856, "L"),
-				new Beat(startTime + gap * 858, "D"),
-				new Beat(startTime + gap * 860, "F"),
-				new Beat(startTime + gap * 861, "F"),
-				new Beat(startTime + gap * 863, "F"), 
-				new Beat(startTime + gap * 864, "S"), 
-				new Beat(startTime + gap * 865, "D"),
-				new Beat(startTime + gap * 867, "F"),      
-
-
 		};
 	}
 	
 	@Override
 	public void update() {
 		
-		
+		// updates the notes to get more and remove ones that have passes the boundary
 		for (int i = 0; i < notes.size(); i++) {
 			Note note = notes.get(i);
 			note.update();
@@ -727,14 +490,15 @@ public class GameLupin extends GameState
 			}
 		}
 		
-		
+		// updates effect
 		effect.update();
 		
+		// shows result screen when notes are all done
 		if(displayResult) {
 			if(!showingResult) {
 				showingResult = true;
 				rbg.playBgm();
-				rbg.takeMusicTitle("Macross- 82.99 F.M");
+				rbg.takeMusicTitle("Silhouette- Naruto");
 				rbg.takeScore(score);
 				rbg.writeScore();
 				rbg.calRank();
@@ -747,27 +511,33 @@ public class GameLupin extends GameState
 	@Override
 	public void draw(Graphics2D g) {
 		
+		// gets the background
 		bg.draw(g);
 		
+		// sets the title
 		g.setColor(Color.WHITE);
 		g.setRenderingHint(
 				RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
-		g.drawString("Macross- 82.99 F.M", 10, 694);
+		g.drawString("Silhouette- Naruto", 10, 694);
 		
+		// gets score displayer and how difficult level is
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 26));
 		g.drawString(String.valueOf(score), 636, 694);
-		g.drawString("Hard",1140, 694);
+		g.drawString("Medium", 1140, 694);
 		
+		// draws our notes
 		for (int i = 0; i < notes.size(); i++) {
 			Note note = notes.get(i);
 			note.draw(g);
 		}
 		
+		// effects drawn
 		effect.draw(g);
 		
+		// result drawn when needed
 		if(displayResult) {
 			rbg.draw(g);
 		}
@@ -781,21 +551,26 @@ public class GameLupin extends GameState
 			
 			exit = true;
 			
-		
+			//closes result screen and the game music when go back
 			gameMusic.close();
 			rbg.closeBgm();
 			
+			// interrupts game if needed
 			for (int i = 0; i < notes.size(); i++) {
 				Note note = notes.get(i);
 				note.setProceeded(false);
 			}
 			game.interrupt();
 			
+			// go back to menu
 			gsm.setStateInit(GameStateManager.MENUSTATE);
 			gsm.setState(GameStateManager.MENUSTATE); 
 			
 		}
 		
+		//code for getting the key for timing and recognizing stuff
+		//plays a sound effect when pressed
+		//also does judging for the score
 		if(!displayResult) {
 			
 			beatSound = new Music("beat.mp3", false);
@@ -852,6 +627,7 @@ public class GameLupin extends GameState
 		else if (k == KeyEvent.VK_L) bg.releaseL();
 	}
 
+	//the code for the judge thing
 	public void judge(String input)
 	{
 		for (int i = 0; i < notes.size(); i++) {
@@ -889,14 +665,18 @@ public class GameLupin extends GameState
 			}
 		}
 	}
+		
+	
 	
 	@Override
 	public void run() {
 		
 		int i =0;
 
+		//games runs
 			while (i < beats.length && !game.isInterrupted()) {
 
+				
 				if (beats[i].getTime() <= gameMusic.getTime()) {
 					Note note = new Note(beats[i].getNoteName());
 					notes.add(note);
@@ -904,15 +684,14 @@ public class GameLupin extends GameState
 				}
 			}
 			
+		//game over then tell result
 		if (!exit) {
+			
 			try {
 				Thread.sleep(5000);
 			} catch (Exception e) {e.printStackTrace();}
 			rbg.calRank();
 			displayResult = true;
-			
-			CompareScore c1 = new CompareScore("Lupin", score, CollectName.userName);
-			MenuState.RetrieveLeaderboard("Lupin");
 		}
 
 	}

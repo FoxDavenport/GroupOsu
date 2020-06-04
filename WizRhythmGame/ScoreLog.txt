@@ -1,5 +1,6 @@
 2020.06.03 06:07:41		Anime Girls - adrenaline		27320
 2020.06.03 06:10:46		Shiawase no Monosashi - Mariya 		14855
+<<<<<<< HEAD
 2020.06.03 11:51:44		Anime Girls - adrenaline		11785
 2020.06.03 11:55:15		Anime Girls - adrenaline		6605
 2020.06.04 12:00:33		Anime Girls - adrenaline		16630
@@ -16,3 +17,21 @@
 2020.06.04 01:25:53		Shiawase no Monosashi - Mariya 		13875
 2020.06.04 01:42:19		Shiawase no Monosashi - Mariya 		16190
 2020.06.04 02:02:28		Macross- 82.99 F.M		15340
+=======
+2020.06.03 06:19:50		Anime Girls - adrenaline		24560
+2020.06.03 06:47:47		Anime Girls - adrenaline		25080
+2020.06.03 07:30:42		Macross- 82.99 F.M		23860
+2020.06.03 07:36:42		Macross- 82.99 F.M		28680
+2020.06.03 07:41:02		Macross- 82.99 F.M		0
+2020.06.03 07:50:02		Macross- 82.99 F.M		0
+2020.06.03 08:00:57		Anime Girls - adrenaline		24680
+2020.06.03 08:07:53		Macross- 82.99 F.M		0
+2020.06.03 08:10:40		Macross- 82.99 F.M		17675
+2020.06.03 08:26:46		D-51 - Brand New World		28125
+2020.06.03 09:49:06		Silhouette- Naruto		11555
+2020.06.03 11:22:08		Macross- 82.99 F.M		26325
+2020.06.04 12:09:59		Silhouette- Naruto		23880
+2020.06.04 12:54:29		Shiawase no Monosashi - Mariya 		17145
+2020.06.04 01:21:03		Shiawase no Monosashi - Mariya 		40465
+2020.06.04 01:37:00		Shiawase no Monosashi - Mariya 		53140
+>>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git
