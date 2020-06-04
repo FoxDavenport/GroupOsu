@@ -39,7 +39,7 @@ public class MenuState extends GameState{
 	private BufferedImage imageMenuBackground2; 
 	private BufferedImage imageMenuBackground3; 
 	private BufferedImage imageMenuBackground4; 
-	private BufferedImage imageMenuBackground5;
+	private BufferedImage imageMenuBackground5; 
 	private BufferedImage imageHoverOn;
 	private BufferedImage imageYellowStar;
 	private BufferedImage imageGrayStar;
@@ -56,7 +56,7 @@ public class MenuState extends GameState{
 	public static final int Mariya_MUSIC  = 1;
 	public static final int Lupin_MUSIC = 2;
 	public static final int BrandNewWorld_MUSIC=3;
-	public static final int Naruto_Music=4;
+	public static final int Naturo_MUSIC =4;
 	
 	// selected music
 	private Music selectedMusic;
@@ -75,7 +75,7 @@ public class MenuState extends GameState{
 		tracks = new ArrayList<Track>();
 
 		tracks.add(new Track("Anime Girls", "adrenaline", 2));
-		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 5));
+		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
 		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
 		tracks.add(new Track("Silhouette", "Naruto", 3));
@@ -85,7 +85,6 @@ public class MenuState extends GameState{
 		RetrieveLeaderboard("Lupin");
 		RetrieveLeaderboard("Mariya");
 		RetrieveLeaderboard("Naruto");
-
 		
 		
 		try { //get all of our juicy images
@@ -232,7 +231,6 @@ public class MenuState extends GameState{
 				break;
 			case 4:
 				hoverMap = Naruto;
-				break;
 		}
 		
 		if(hoverMap.size() > 1)
@@ -242,6 +240,7 @@ public class MenuState extends GameState{
 		for(int q = 0;q < hoverMap.size();q++) {
 			g.drawLine(20, 200 + q*50, 320, 200 + q*50);
 			g.drawString(hoverMap.get(q), 24, 190 + q*50);
+		}
 		
 		// Indication to select music
 		for (int i = 0; i < tracks.size(); i++) {
@@ -351,7 +350,6 @@ public class MenuState extends GameState{
 					370
 					);
 		}
-		}
 		
 		
 		
@@ -376,14 +374,17 @@ public class MenuState extends GameState{
 			gsm.setState(GameStateManager.Mariya_STATE);
 		}
 		if (currentChoice == 2) {
-			BNW.removeAll(BNW);
+			Lupin.removeAll(Lupin);
 			gsm.setState(GameStateManager.Lupin_STATE);
 		}
-		if (currentChoice == 3) {
-			Lupin.removeAll(Lupin);
+		if (currentChoice == 3) 
+		{
+			BNW.removeAll(BNW);
 			gsm.setState(GameStateManager.BrandNewWorld_STATE);
 		}
-		if (currentChoice == 4) {
+		if(currentChoice == 4)
+		{
+			Naruto.removeAll(Naruto);
 			gsm.setState(GameStateManager.Naruto_STATE);
 		}
 	}
@@ -480,9 +481,10 @@ public class MenuState extends GameState{
                 	Mariya.add(Mariya.size(), item.get("Name") + ": " + item.getInt("Score"));
                 	break;
                 }
+                
                 case "Naruto":
                 {
-                	Naruto.add(Naruto.size(), item.get("Name") + ": " + item.getInt("Score"));
+                	Naruto.add(Mariya.size(), item.get("Name") + ": " + item.getInt("Score"));
                 	break;
                 }
                 }
