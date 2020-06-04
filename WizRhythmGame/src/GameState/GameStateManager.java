@@ -55,7 +55,6 @@ public class GameStateManager {
 		if (currentState != MENUSTATE) {
 			unloadState(currentState);
 		}
-		
 		currentState = state;
 		loadState(state);
 	}
