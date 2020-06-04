@@ -20,6 +20,7 @@ public class MenuState extends GameState{
 	private BufferedImage imageMenuBackground2; 
 	private BufferedImage imageMenuBackground3; 
 	private BufferedImage imageMenuBackground4; 
+	private BufferedImage imageMenuBackground5;
 	private BufferedImage imageHoverOn;
 	private BufferedImage imageYellowStar;
 	private BufferedImage imageGrayStar;
@@ -36,6 +37,7 @@ public class MenuState extends GameState{
 	public static final int Mariya_MUSIC  = 1;
 	public static final int Lupin_MUSIC = 2;
 	public static final int BrandNewWorld_MUSIC=3;
+	public static final int Naruto_Music=4;
 	
 	// selected music
 	private Music selectedMusic;
@@ -57,6 +59,7 @@ public class MenuState extends GameState{
 		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
 		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
+		tracks.add(new Track("Silhouette", "Naruto", 3));
 		
 		try { //get all of our juicy images
 
@@ -75,6 +78,10 @@ public class MenuState extends GameState{
 			imageMenuBackground4 = ImageIO.read(
 					getClass().getResourceAsStream(
 							"/image/EniesLobby.png")
+					);
+			imageMenuBackground5 = ImageIO.read(
+					getClass().getResourceAsStream(
+							"/image/Naruto.jpg")
 					);
 		
 			imageHoverOn = ImageIO.read(
@@ -155,6 +162,9 @@ public class MenuState extends GameState{
 				}
 				if(i == 3) {
 					g.drawImage(imageMenuBackground4, 0, 0, null);
+				}
+				if(i == 4) {
+					g.drawImage(imageMenuBackground5, 0, 0, null);
 				}
 			}
 		}
@@ -315,6 +325,9 @@ public class MenuState extends GameState{
 		}
 		if (currentChoice == 3) {
 			gsm.setState(GameStateManager.BrandNewWorld_STATE);
+		}
+		if (currentChoice == 4) {
+			gsm.setState(GameStateManager.Naruto_STATE);
 		}
 	}
 	

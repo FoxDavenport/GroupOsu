@@ -13,7 +13,7 @@ public class GameStateManager {
 	public static final int adrenaline_STATE = 3;
 	public static final int Mariya_STATE = 4;
 	public static final int Lupin_STATE = 5;
-	public static final int Something_STATE = 6;
+	public static final int Naruto_STATE = 6;
 	
 	public GameStateManager() {
 		
@@ -39,8 +39,8 @@ public class GameStateManager {
 			gameStates[state] = new GameAdrenaline(this);
 		if (state == Lupin_STATE)
 			gameStates[state] = new GameLupin(this);
-		if (state == Something_STATE)
-			gameStates[state] = new GameLupin(this);
+		if (state == Naruto_STATE)
+			gameStates[state] = new GameNaruto(this);
 	}
 	
 	
