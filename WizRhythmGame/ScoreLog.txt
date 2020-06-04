@@ -37,3 +37,6 @@
 >>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git
 2020.06.04 08:05:36		Macross- 82.99 F.M		43075
 2020.06.04 08:16:46		Anime Girls - adrenaline		190
+2020.06.04 08:39:00		Silhouette- Naruto		25260
+2020.06.04 08:41:47		D-51 - Brand New World		32840
+2020.06.04 08:46:56		Shiawase no Monosashi - Mariya 		82395
