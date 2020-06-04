@@ -25,6 +25,11 @@ After you click the space bar, it will take some time to load Song Selection UI.
 
 Amazon access stuff:
 
-Access key ID: AKIASAOGSC2NQQ432ZYG 
+Access Key ID:
 
-Secret access key:YvzxbRc68mtNlBaOHIh/UU3xc8O/QnowerIQu6BY
+AKIAIAN4B2JAFGSDIIKQ
+
+
+Secret Access Key:
+
+GY6dihOufzROjv6E08E871EgQDd/zIg+E1RhA9AA
