@@ -7,7 +7,7 @@ Right click on the project. Click on Maven and click "add dependency".
 
 Group: com.amazonaws
 
-Artifact type: aws-java-sdk
+Artifact type: aws-java-sdk (do for both)
 
 Version type: 1.11.256
 
@@ -16,6 +16,6 @@ Repeat. Right click on Project. Click on Maven and click "add dependency".
 
 Group: com.amazonaws
 
-Artifact type: samples
+Artifact type: samples (do for both)
 
 Version type: 1.0.0
