@@ -21,15 +21,3 @@ Artifact type: samples (do for both)
 Version type: 1.0.0
 
 After you click the space bar, it will take some time to load Song Selection UI. Please be patient!
-
-
-Amazon access stuff:
-
-Access Key ID:
-
-AKIAIAN4B2JAFGSDIIKQ
-
-
-Secret Access Key:
-
-GY6dihOufzROjv6E08E871EgQDd/zIg+E1RhA9AA
