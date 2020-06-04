@@ -178,7 +178,7 @@ public class MenuState extends GameState{
 		
 		for( int i = 0; i < 5 ; i++) {
 			g.drawLine(20, 200 + i*50, 320, 200 + i*50);
-			g.drawString("integrate database pls", 24, 190 + i*50);
+			g.drawString("integrate database pls", 24, 190 + i*40);
 		}
 		
 		// Indication to select music
