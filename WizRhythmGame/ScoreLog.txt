@@ -35,3 +35,5 @@
 2020.06.04 01:21:03		Shiawase no Monosashi - Mariya 		40465
 2020.06.04 01:37:00		Shiawase no Monosashi - Mariya 		53140
 >>>>>>> branch 'master' of https://github.com/FoxDavenport/GroupOsu.git
+2020.06.04 08:05:36		Macross- 82.99 F.M		43075
+2020.06.04 08:16:46		Anime Girls - adrenaline		190
