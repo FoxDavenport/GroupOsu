@@ -66,7 +66,7 @@ public class ResultBackground {
 		else if(score>22000 && score <= 25000) rank = "C+";
 		else if(score>25000 && score <= 28000) rank = "B-";
 		else if(score>28000 && score <= 31000) rank = "B";
-		else if(score>25000 && score <= 34000) rank = "B+";
+		else if(score>31000 && score <= 34000) rank = "B+";
 		else if(score>34000 && score <= 40000) rank = "A"; 
 		else if(score>40000 && score <= 45000) rank = "A+";
 		else if(score>45000 && score <= 50000) rank = "S-";
