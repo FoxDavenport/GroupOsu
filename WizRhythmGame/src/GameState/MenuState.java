@@ -32,6 +32,7 @@ public class MenuState extends GameState{
 	static ArrayList<String> BNW = new ArrayList<String>();
 	static ArrayList<String> Lupin = new ArrayList<String>();
 	static ArrayList<String> Mariya = new ArrayList<String>();
+	static ArrayList<String> Naruto = new ArrayList<String>();
 
 	// image
 	private BufferedImage imageMenuBackground; 
@@ -83,6 +84,8 @@ public class MenuState extends GameState{
 		RetrieveLeaderboard("BNW");
 		RetrieveLeaderboard("Lupin");
 		RetrieveLeaderboard("Mariya");
+		RetrieveLeaderboard("Naruto");
+
 		
 		
 		try { //get all of our juicy images
@@ -226,6 +229,9 @@ public class MenuState extends GameState{
 				break;
 			case 3:
 				hoverMap = BNW;
+				break;
+			case 4:
+				hoverMap = Naruto;
 				break;
 		}
 		
@@ -472,6 +478,11 @@ public class MenuState extends GameState{
                 case "Mariya":
                 {
                 	Mariya.add(Mariya.size(), item.get("Name") + ": " + item.getInt("Score"));
+                	break;
+                }
+                case "Naruto":
+                {
+                	Naruto.add(Naruto.size(), item.get("Name") + ": " + item.getInt("Score"));
                 	break;
                 }
                 }
