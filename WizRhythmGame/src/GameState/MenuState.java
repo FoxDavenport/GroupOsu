@@ -56,7 +56,7 @@ public class MenuState extends GameState{
 		tracks = new ArrayList<Track>();
 
 		tracks.add(new Track("Anime Girls", "adrenaline", 2));
-		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 3));
+		tracks.add(new Track("Shiawase no Monosashi", "Mariya", 5));
 		tracks.add(new Track("Macross", "82.99 F.M", 4));
 		tracks.add(new Track("D-51", "Brand New World", 3));
 		tracks.add(new Track("Silhouette", "Naruto", 3));
