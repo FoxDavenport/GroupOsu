@@ -20,4 +20,10 @@ Artifact type: samples (do for both)
 
 Version type: 1.0.0
 
+You also need to recreate the table if you wish to run it when the database isn't up. We will try to get a 24/7 server though.
+Make sure to create the table in US East 1, which is US East (N. Virginia). The table should be called "RhythmGameScores".
+LevelName will be the partition key and is a string. Score is the sort key and is an int/number. You need to append another one called Name which is a string. Then create the table and add one item to test it. Afterwards make sure your AWS credentials are connected to Eclipse.
+
+
 After you click the space bar, it will take some time to load Song Selection UI. Please be patient!
+
