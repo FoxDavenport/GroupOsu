@@ -24,6 +24,7 @@ You also need to recreate the table if you wish to run it when the database isn'
 Make sure to create the table in US East 1, which is US East (N. Virginia). The table should be called "RhythmGameScores".
 LevelName will be the partition key and is a string. Score is the sort key and is an int/number. You need to append another one called Name which is a string. Then create the table and add one item to test it. Afterwards make sure your AWS credentials are connected to Eclipse.
 
+The main class is in the packaged called "Main" and the class is called "Game". Right click on game or the src folder and click run Java application to start the game. Navigate through the songs with up and down arrow keys. Press enter to play a song.
 
 After you click the space bar, it will take some time to load Song Selection UI. Please be patient!
 
